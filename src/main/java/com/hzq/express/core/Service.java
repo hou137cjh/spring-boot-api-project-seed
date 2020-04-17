@@ -1,9 +1,10 @@
 package com.hzq.express.core;
 
-import org.apache.ibatis.exceptions.TooManyResultsException;
-import tk.mybatis.mapper.entity.Condition;
-
 import java.util.List;
+
+import org.apache.ibatis.exceptions.TooManyResultsException;
+
+import tk.mybatis.mapper.entity.Condition;
 
 /**
  * Service 层 基础接口，其他Service 接口 请继承该接口
