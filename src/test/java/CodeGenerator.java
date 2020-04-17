@@ -1,17 +1,19 @@
-import com.google.common.base.CaseFormat;
-import freemarker.template.TemplateExceptionHandler;
-import org.apache.commons.lang3.StringUtils;
-import org.mybatis.generator.api.MyBatisGenerator;
-import org.mybatis.generator.config.*;
-import org.mybatis.generator.internal.DefaultShellCallback;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.company.project.core.ProjectConstant.*;
+import org.apache.commons.lang3.StringUtils;
+import org.mybatis.generator.api.MyBatisGenerator;
+import org.mybatis.generator.config.*;
+import org.mybatis.generator.internal.DefaultShellCallback;
+
+import com.google.common.base.CaseFormat;
+
+import freemarker.template.TemplateExceptionHandler;
+
+import static com.hzq.express.core.ProjectConstant.*;
 
 /**
  * 代码生成器，根据数据表名称生成对应的Model、Mapper、Service、Controller简化开发。
@@ -33,11 +35,11 @@ public class CodeGenerator {
     private static final String PACKAGE_PATH_SERVICE_IMPL = packageConvertPath(SERVICE_IMPL_PACKAGE);//生成的Service实现存放路径
     private static final String PACKAGE_PATH_CONTROLLER = packageConvertPath(CONTROLLER_PACKAGE);//生成的Controller存放路径
 
-    private static final String AUTHOR = "CodeGenerator";//@author
+    private static final String AUTHOR = "hzqi";//@author
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main(String[] args) {
-        genCode("输入表名");
+        genCode("score");
         //genCodeByCustomModelName("输入表名","输入自定义Model名称");
     }
 
@@ -113,9 +115,8 @@ public class CodeGenerator {
             config.addContext(context);
             config.validate();
 
-            boolean overwrite = true;
-            DefaultShellCallback callback = new DefaultShellCallback(overwrite);
-            warnings = new ArrayList<String>();
+            DefaultShellCallback callback = new DefaultShellCallback(true);
+            warnings = new ArrayList<>();
             generator = new MyBatisGenerator(config, callback, warnings);
             generator.generate(null);
         } catch (Exception e) {

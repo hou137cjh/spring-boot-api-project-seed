@@ -1,4 +1,4 @@
-package com.company.project.configurer;
+package com.hzq.express.configurer;
 
 import java.util.Properties;
 
@@ -16,7 +16,7 @@ import com.github.pagehelper.PageHelper;
 
 import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
-import static com.company.project.core.ProjectConstant.*;
+import static com.hzq.express.core.ProjectConstant.*;
 
 /**
  * Mybatis & Mapper & PageHelper 配置

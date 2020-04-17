@@ -1,7 +1,7 @@
-package com.conpany.project;
+package com.hzq.express;
 
 
-import com.company.project.Application;
+import com.hzq.express.Application;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
