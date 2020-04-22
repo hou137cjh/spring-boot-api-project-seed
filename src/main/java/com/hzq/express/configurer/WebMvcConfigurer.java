@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -125,6 +126,15 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
                 }
             });
         }
+    }
+
+    // 引入bootstrap静态资源文件
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        //是classpath:/META-INF，不是/classpath:META-INFO/resoureces/webjars,区别很大的！！
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/META-INF/resources/static/");
+
     }
 
     private void responseResult(HttpServletResponse response, Result result) {
